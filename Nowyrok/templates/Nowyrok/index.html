@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>GIT</title>
+    <link href="{% static 'Nowyrok/style.css' %}" rel="stylesheet">
+    <style>
+        h1 {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    {% if newyear %}
+    <div>
+        <h1>Jest nowy rok</h1>
+    </div>
+    {% else %}
+    <div>
+        <h1>Nie jest nowy rok</h1>
+    </div>
+    {% endif %}
+</body>
+
+</html>
