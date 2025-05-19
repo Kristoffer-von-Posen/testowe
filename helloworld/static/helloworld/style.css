@@ -1,0 +1,30 @@
+body {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center
+}
+
+#tlo_przyciskow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: green;
+  flex: 1, 1, auto;
+}
+
+#tlo_przyciskow>* {
+  color: white;
+  background-color: red;
+  margin: 10px;
+  flex: 1, 1, (200px, 200px);
+}
+
+
+h1 {
+  background-color: yellow;
+  color: blue;
+  flex: 1, 1, auto;
+}

@@ -29,17 +29,14 @@ ALLOWED_HOSTS = [
     'fb12af20-2741-49b5-a53a-c3805754411f-00-3sablgreaw0wp.worf.replit.dev'
 ]
 
-
 CSRF_TRUSTED_ORIGINS = [
     "https://fb12af20-2741-49b5-a53a-c3805754411f-00-3sablgreaw0wp.worf.replit.dev",
 ]
 
-
-
-
 # Application definition
 
 INSTALLED_APPS = [
+    'Fischlein',
     'Nowyrok',
     'helloworld',
     'tasks',

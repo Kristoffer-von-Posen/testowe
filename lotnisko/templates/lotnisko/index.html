@@ -1,0 +1,16 @@
+{% extends "lotnisko/wzor.html" %}
+
+{% block body %}
+
+<h1>Witaj na lotnisku!</h1>
+<ul>
+  {% for i in Flieg %}
+  <li>
+    <a href="{% url 'lotnisko:lott' i.id %}">Lecisz z {{ i.origin }} do {{i.destination}} przez {{ i.duration}}minut</a>
+  </li>
+  {% endfor %}
+</ul>
+
+
+
+{% endblock %}

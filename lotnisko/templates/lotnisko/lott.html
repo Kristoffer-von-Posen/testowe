@@ -1,0 +1,30 @@
+{% extends "lotnisko/wzor.html" %}
+
+{% block body %}
+
+<h1>Lot {{lot.id}} wylatuje z {{lot.origin}} i leci do {{lot.destination}}</h1>
+
+<h2> Pasazerowie tego lotu </h2>
+<ul>
+  {% for i in pasazerowie %}
+  <li>{{ i.imie }} {{ i.nazwisko }}</li>
+  {% endfor %}
+</ul>
+
+<a href="{% url 'lotnisko:index' %}"> Powrot do listy lotow </a>
+
+<form action="{% url 'lotnisko:book' lot.id %}" method="post">
+
+  {% csrf_token %}
+
+  <select name="passenger">
+    {% for j in non_passengers %}
+    <option value="{{j.id}}">{{j.imie}}</option>
+    {% endfor %}
+  </select>
+
+
+  <input type="submit" value="Zarezerwuj">
+</form>
+
+{% endblock %}

@@ -1,19 +1,33 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <title>GIT</title>
-    <style>
-        h1 {
-            color: blue;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'helloworld/style.css' %}">
+
 </head>
 
 <body>
-    <div>
-        <h1>Typy polecen git.</h1>
+    <h1>HELLO CHOOSE YOUR ACTIVITY FOR TODAY</h1>
+    <div id="tlo_przyciskow">
+
+        <a href="{% url 'Fischlein:index' %}">
+            <div>Fischlein</div>
+        </a>
+        <a href="{% url 'Nowyrok:index' %}">
+            <div> nowy rok </div>
+        </a>
+        <a href="{% url 'lotnisko:index' %}">
+            <div> lotnisko </div>
+        </a>
+        <a href="{% url 'tasks:index' %}">
+            <div> tasks </div>
+        </a>
+
     </div>
+
 </body>
 
 </html>
