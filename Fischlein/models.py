@@ -5,8 +5,16 @@ from django.db import models
 
 # klasa zawierajaca fiszki uwu
 class Fisch(models.Model):
-  niem = models.CharField(max_length=64)
-  tlum = models.CharField(max_length=64)
+  niem = models.CharField(max_length=256)
+  prompt_num = models.IntegerField()
 
   def __str__(self):
-    return f"{self.niem} znaczy {self.tlum}"
+    return f"{self.niem}"
+
+
+class Prompts(models.Model):
+  opis = models.CharField(max_length=256, null=True)
+  chat = models.CharField(max_length=2048)
+
+  def __str__(self):
+    return f"{self.chat}"
