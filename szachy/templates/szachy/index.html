@@ -1,0 +1,180 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>szachy</title>
+
+
+  <script>
+    function loadSVG(url, targetDiv) {
+      fetch(url)
+        .then(res => res.text())
+        .then(svg => {
+          const wrapper = document.createElement("div");
+          wrapper.classList.add("draggable");
+          wrapper.setAttribute("draggable", "true");
+          wrapper.innerHTML = svg;
+          document.getElementById(targetDiv).appendChild(wrapper);
+          setupDragAndDrop(wrapper);
+        });
+    }
+
+    function setupDragAndDrop(elem) {
+      elem.addEventListener('dragstart', (e) => {
+        window.draggedElement = e.target.closest('.draggable');
+      });
+    }
+
+    document.querySelectorAll('.ch_v, .ch_r').forEach(zone => {
+      zone.addEventListener('dragover', e => e.preventDefault());
+
+      zone.addEventListener('drop', e => {
+        e.preventDefault();
+        const dragged = window.draggedElement;
+        if (dragged) {
+          zone.appendChild(dragged);
+        }
+      });
+    });
+
+    // Load an SVG into the first div
+    loadSVG("{% static 'szachy/svg/b_w.svg' %}", "zone1");
+  </script>
+
+
+  <style>
+    #ch_b {
+      display: flex;
+
+    }
+
+    .ch {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ch_v,
+    .ch_r {
+      display: flex;
+      width: 60px;
+      height: 60px;
+      display: inline-block;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    .ch_r {
+      background-color: red;
+    }
+
+    .ch_v {
+      background-color: blue;
+    }
+
+    .draggable {
+      z-index: 10;
+    }
+  </style>
+</head>
+
+<body>
+  <h1> Szachy </h1>
+
+  <div id='ch_b'>
+    <div class='ch'>
+      <div id="zone1" class='ch_v'></div>
+      <div class='ch_r'> </div>
+      <div class='ch_v'> </div>
+      <div class='ch_r'> </div>
+      <div class='ch_v'> </div>
+      <div class='ch_r'> </div>
+      <div class='ch_v'> </div>
+      <div class='ch_r'> </div>
+    </div>
+
+
+    <div class='ch'>
+      <div class='ch_r'> </div>
+      <div class='ch_v'> </div>
+      <div class='ch_r'> </div>
+      <div class='ch_v'> </div>
+      <div class='ch_r'> </div>
+      <div class='ch_v'> </div>
+      <div class='ch_r'> </div>
+      <div class='ch_v'> </div>
+    </div>
+
+    <div class='ch'>
+      <div class='ch_v'> </div>
+      <div class='ch_r'> </div>
+      <div class='ch_v'> </div>
+      <div class='ch_r'> </div>
+      <div class='ch_v'> </div>
+      <div class='ch_r'> </div>
+      <div class='ch_v'> </div>
+      <div class='ch_r'> </div>
+    </div>
+
+    <div class='ch'>
+      <div class='ch_r'> </div>
+      <div class='ch_v'> </div>
+      <div class='ch_r'> </div>
+      <div class='ch_v'> </div>
+      <div class='ch_r'> </div>
+      <div class='ch_v'> </div>
+      <div class='ch_r'> </div>
+      <div class='ch_v'> </div>
+    </div>
+    <div class='ch'>
+      <div class='ch_v'> </div>
+      <div class='ch_r'> </div>
+      <div class='ch_v'> </div>
+      <div class='ch_r'> </div>
+      <div class='ch_v'> </div>
+      <div class='ch_r'> </div>
+      <div class='ch_v'> </div>
+      <div class='ch_r'> </div>
+    </div>
+
+
+    <div class='ch'>
+      <div class='ch_r'> </div>
+      <div class='ch_v'> </div>
+      <div class='ch_r'> </div>
+      <div class='ch_v'> </div>
+      <div class='ch_r'> </div>
+      <div class='ch_v'> </div>
+      <div class='ch_r'> </div>
+      <div class='ch_v'> </div>
+    </div>
+
+    <div class='ch'>
+      <div class='ch_v'> </div>
+      <div class='ch_r'> </div>
+      <div class='ch_v'> </div>
+      <div class='ch_r'> </div>
+      <div class='ch_v'> </div>
+      <div class='ch_r'> </div>
+      <div class='ch_v'> </div>
+      <div class='ch_r'> </div>
+    </div>
+
+    <div class='ch'>
+      <div class='ch_r'> </div>
+      <div class='ch_v'> </div>
+      <div class='ch_r'> </div>
+      <div class='ch_v'> </div>
+      <div class='ch_r'> </div>
+      <div class='ch_v'> </div>
+      <div class='ch_r'> </div>
+      <div class='ch_v'> </div>
+    </div>
+
+
+  </div>
+
+</body>

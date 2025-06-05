@@ -27,5 +27,8 @@ urlpatterns = [
     path('tasks/', include(('tasks.urls', 'tasks'), namespace='tasks')),
     path('lot/', include(('lotnisko.urls', 'lotnisko'), namespace='lotnisko')),
     path('Fischlein/',
-         include(('Fischlein.urls', 'Fischlein'), namespace='Fischlein'))
+         include(('Fischlein.urls', 'Fischlein'), namespace='Fischlein')),
+    path('users/', include(('users.urls', 'users'), namespace='users')),
+    path('java/', include(('java.urls', 'java'), namespace='java')),
+    path('szachy/', include(('szachy.urls', 'szachy'), namespace='szachy'))
 ]

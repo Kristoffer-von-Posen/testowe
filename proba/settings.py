@@ -36,6 +36,9 @@ CSRF_TRUSTED_ORIGINS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'szachy',
+    'java',
+    'users',
     'Fischlein',
     'Nowyrok',
     'helloworld',
