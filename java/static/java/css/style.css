@@ -1,0 +1,27 @@
+button {
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
+  color: purple;
+  margin: 10px;
+}
+
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#Pasek_gorny {
+  height: 100px;
+  width: 100%;
+  background-color: grey;
+}
+
+#licznik,
+#dioda {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  margin: 10px;
+}

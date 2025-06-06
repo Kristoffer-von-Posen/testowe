@@ -10,39 +10,41 @@
 
 
   <script>
-    function loadSVG(url, targetDiv) {
-      fetch(url)
-        .then(res => res.text())
-        .then(svg => {
-          const wrapper = document.createElement("div");
-          wrapper.classList.add("draggable");
-          wrapper.setAttribute("draggable", "true");
-          wrapper.innerHTML = svg;
-          document.getElementById(targetDiv).appendChild(wrapper);
-          setupDragAndDrop(wrapper);
+    document.addEventListener("DOMContentLoaded", function () {
+      function loadSVG(url, targetDiv) {
+        fetch(url)
+          .then(res => res.text())
+          .then(svg => {
+            const wrapper = document.createElement("div");
+            wrapper.classList.add("draggable");
+            wrapper.setAttribute("draggable", "true");
+            wrapper.innerHTML = svg;
+            document.getElementById(targetDiv).appendChild(wrapper);
+            setupDragAndDrop(wrapper);
+          });
+      }
+
+      function setupDragAndDrop(elem) {
+        elem.addEventListener('dragstart', (e) => {
+          window.draggedElement = e.target.closest('.draggable');
         });
-    }
+      }
 
-    function setupDragAndDrop(elem) {
-      elem.addEventListener('dragstart', (e) => {
-        window.draggedElement = e.target.closest('.draggable');
+      document.querySelectorAll('.ch_v, .ch_r').forEach(zone => {
+        zone.addEventListener('dragover', e => e.preventDefault());
+
+        zone.addEventListener('drop', e => {
+          e.preventDefault();
+          const dragged = window.draggedElement;
+          if (dragged) {
+            zone.appendChild(dragged);
+          }
+        });
       });
-    }
 
-    document.querySelectorAll('.ch_v, .ch_r').forEach(zone => {
-      zone.addEventListener('dragover', e => e.preventDefault());
-
-      zone.addEventListener('drop', e => {
-        e.preventDefault();
-        const dragged = window.draggedElement;
-        if (dragged) {
-          zone.appendChild(dragged);
-        }
-      });
+      // Load an SVG into the first div
+      loadSVG("{% static 'szachy/svg/b_w.svg' %}", "zone1");
     });
-
-    // Load an SVG into the first div
-    loadSVG("{% static 'szachy/svg/b_w.svg' %}", "zone1");
   </script>
 
 
@@ -75,8 +77,10 @@
       background-color: blue;
     }
 
-    .draggable {
+    .draggable svg {
       z-index: 10;
+      height: 80%;
+      width: 80%;
     }
   </style>
 </head>
