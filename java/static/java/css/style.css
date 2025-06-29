@@ -1,27 +1,45 @@
+h1 {
+  margin: 20px;
+}
+
+body {
+  background-color: #383838;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+
+#main {
+  display: flex;
+  flex-direction: column;
+  background-color: #25c6ef;
+}
+
 button {
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
   background-color: yellow;
   color: purple;
+  margin: 5px;
+}
+
+
+.pasek {
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  width: 500px;
+  background-color: grey;
   margin: 10px;
 }
 
-div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#Pasek_gorny {
-  height: 100px;
-  width: 100%;
-  background-color: grey;
-}
 
 #licznik,
-#dioda {
-  width: 100px;
-  height: 100px;
+#dioda,
+select {
+  width: 60px;
+  height: 60px;
   background-color: blue;
-  margin: 10px;
+  margin: 5px;
 }
